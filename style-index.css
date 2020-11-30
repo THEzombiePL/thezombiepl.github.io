@@ -1,7 +1,31 @@
+@font-face {
+    font-family: 'Minecraft';
+    src: url('fonts/Minecraft.woff2') format('woff2'),
+        url('fonts/Minecraft.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 * {
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body {
  margin: 0;
  padding: 0;
+ background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(BackgroundIMG/mcbg.png);
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+ background-size: cover;
+ background-position: center;
 }
-body {
- background: #b3b3b3;
+
+@media only screen and (max-width: 700px) {
+}
+
+@media only screen and (max-width: 500px) {
 }
