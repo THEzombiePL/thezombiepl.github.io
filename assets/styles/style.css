@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Minecraft';
-    src: url('fonts/Minecraft.woff2') format('woff2'),
-        url('fonts/Minecraft.woff') format('woff');
+    src: url('assets/fonts/Minecraft.woff2') format('woff2'),
+        url('assets/fonts/Minecraft.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -15,7 +15,7 @@
 body {
  margin: 0;
  padding: 0;
- background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(BackgroundIMG/mcbg.png);
+ background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(assets/images/mcbg.png);
  background-repeat: no-repeat;
  background-attachment: fixed;
  background-size: cover;
@@ -45,6 +45,29 @@ ul li a {
   padding: 14px 16px;
   text-decoration: none;
   background-color: #111;
+}
+.gora {
+  padding: 20px;
+  margin-top: 30px;
+  height: calc(100% + 10px);;
+}
+.center {
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+ padding-bottom: 8px;
+ height: auto;
+ padding-top: 8px;
+ border-radius: 5px;
+ float: left;
+ width: 99%;
+}
+.logo {
+ background: rgba(0, 0, 0, .6);
+ color: white;
+ font-family: 'Minecraft';
+ font-size: 50px;
+ padding: 0 50px; 
 }
 /* ==================================== */
 /*           ˇˇ LEWE MENU ˇˇ            */
