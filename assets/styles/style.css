@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Minecraft';
-    src: url('assets/fonts/Minecraft.woff2') format('woff2'),
-        url('assets/fonts/Minecraft.woff') format('woff');
+    src: url('../fonts/Minecraft.woff2') format('woff2'),
+        url('../fonts/Minecraft.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -15,7 +15,7 @@
 body {
  margin: 0;
  padding: 0;
- background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(assets/images/mcbg.png);
+ background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../images/mcbg.png);
  background-repeat: no-repeat;
  background-attachment: fixed;
  background-size: cover;
