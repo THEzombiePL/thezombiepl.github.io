@@ -1,9 +1,32 @@
 <html>
 <head>
-  <link rel="stylesheet" href="style-index.css">
-  <title>THEzombiePL - Strona Główna</title>
+<meta charset="UTF-8">
+<title>THEzombiePL | Strona główna</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width">
+<script src="menu.js">
+</script>
+<script src="search.js">
+</script>
 </head>
 <body>
-<h1>Strona Główna</h1>
-<a href="test.html">test</a>
+ <ul>
+  <li>
+   <a style="font-size:15px;cursor:pointer" onclick="openNav()">&#9776; Menu</a>
+  </li>
+ </ul>
+ <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a class="fa active" href="index.html">&#xf015; Strona Główna</a>
+  <input type="search" id="searchBar" onkeyup="searchBar()" placeholder="Wyszukaj kategorię...">
+  <ol id="searchMenu">
+   <li>
+    <a href="test.html">&#149; Test</a>
+   </li>
+   <li>
+    <a href="kontakt.html">&#149; Kontakt</a>
+   </li>
+  </ol>
+ </div>
 </body>
