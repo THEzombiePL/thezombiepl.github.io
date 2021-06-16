@@ -4,7 +4,7 @@ html {
 body {
   background-color: #1a1a1a !important;
 }
-#section {
+.section {
   min-height: 80vh;
 }
 .navbar-dark .navbar-nav .nav-link.active {
