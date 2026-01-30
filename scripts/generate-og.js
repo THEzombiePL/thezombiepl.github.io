@@ -10,15 +10,36 @@ import sharp from 'sharp';
 import { getAllProjectsForOg } from './mdx-data.js';
 import { ogTemplate } from './ogTemplate.js';
 
-const OUT_DIR = path.join(process.cwd(), 'public/og/projects');
+const OG_DIR = path.join(process.cwd(), 'public/og');
+const PROJECTS_DIR = path.join(OG_DIR, 'projects');
 
 const SITE_BRAND = process.env.SITE_BRAND ?? process.env.SITE_NAME ?? 'thezombiepl.github.io';
 
-async function generate() {
-	if (!fs.existsSync(OUT_DIR)) {
-		fs.mkdirSync(OUT_DIR, { recursive: true });
+async function ensureDirs() {
+	if (!fs.existsSync(OG_DIR)) {
+		fs.mkdirSync(OG_DIR, { recursive: true });
 	}
 
+	if (!fs.existsSync(PROJECTS_DIR)) {
+		fs.mkdirSync(PROJECTS_DIR, { recursive: true });
+	}
+}
+
+async function generateHomeOg() {
+	const svg = ogTemplate({
+		title: 'THEzombiePL',
+		subtitle: 'Fullstack Developer · Next.js · TypeScript · Node.js',
+		brand: SITE_BRAND,
+	});
+
+	const outputPath = path.join(OG_DIR, 'home.png');
+
+	await sharp(Buffer.from(svg)).resize(1200, 630).png().toFile(outputPath);
+
+	console.log('✅ OG generated: home');
+}
+
+async function generateProjectsOg() {
 	const projects = getAllProjectsForOg();
 
 	for (const project of projects) {
@@ -28,12 +49,18 @@ async function generate() {
 			brand: SITE_BRAND,
 		});
 
-		const outputPath = path.join(OUT_DIR, `${project.slug}.png`);
+		const outputPath = path.join(PROJECTS_DIR, `${project.slug}.png`);
 
 		await sharp(Buffer.from(svg)).resize(1200, 630).png().toFile(outputPath);
 
-		console.log(`✅ OG generated: ${project.slug}`);
+		console.log(`✅ OG generated: projects/${project.slug}`);
 	}
+}
+
+async function generate() {
+	await ensureDirs();
+	await generateHomeOg();
+	await generateProjectsOg();
 }
 
 generate().catch((err) => {

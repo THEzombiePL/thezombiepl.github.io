@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import { Header } from '@/components/header/Header';
 import './globals.css';
 import { Footer } from '@/components/footer/Footer';
+import { getMetadataBase } from '@/lib/siteUrl';
 
 const geistSans = Geist({
 	variable: '--font-geist-sans',
@@ -15,9 +16,23 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: 'THEzombiePL',
+	metadataBase: getMetadataBase(),
+	title: {
+		default: 'THEzombiePL',
+		template: '%s · THEzombiePL',
+	},
+
 	description:
-		'THEzombiePL - programista i twórca bota Discord o nazwie ZombieBot oraz innych ciekawych projektów',
+		'THEzombiePL – programista, twórca aplikacji webowych, backendów oraz botów Discord.',
+
+	openGraph: {
+		type: 'website',
+		siteName: 'THEzombiePL',
+	},
+
+	twitter: {
+		card: 'summary_large_image',
+	},
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

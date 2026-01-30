@@ -30,6 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NEXT_PUBLIC_REPO_NAME: ${{ vars.NEXT_PUBLIC_REPO_NAME }}
+      NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
