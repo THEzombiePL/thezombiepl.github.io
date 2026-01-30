@@ -1,0 +1,54 @@
+---
+title: Anti‑VPN API
+description: Publiczne API do wykrywania VPN, proxy i adresów z data center na podstawie aktualizowanych list CIDR
+status: ukonczony
+slug: anti-vpn-api
+position: 2
+draft: false
+
+demo: https://antivpn.zombiebot.pl/amivpn
+docs: https://antivpn.zombiebot.pl/docs
+--repo: https://github.com/THEzombiePL/AntiVPN-API
+
+scope:
+  - Projekt i implementacja REST API
+  - Integracja z automatycznie aktualizowanymi listami CIDR
+  - Dokumentacja API (Swagger / OpenAPI)
+  - Obsługa proxy headers (X‑Forwarded‑For)
+  - Optymalizacja pod wydajność i prostą integrację
+
+tech:
+  - Node.js
+  - Fastify
+  - JavaScript
+  - CIDR
+  - OpenAPI
+  - Security tooling
+
+hero:
+  src: /images/antivpn.png
+  caption: Dokumentacja Anti‑VPN API (Swagger)
+
+images:
+  - src: /images/antivpn-api-endpoints.png
+    caption: Dostępne endpointy API
+  - src: /images/antivpn-api-response.png
+    caption: Przykładowa odpowiedź API
+---
+Anti‑VPN API to lekkie i wydajne REST API służące do wykrywania,
+
+czy dany adres IP należy do VPN‑a, proxy lub infrastruktury data center.
+
+
+API bazuje na automatycznie aktualizowanych listach CIDR
+
+i zostało zaprojektowane z myślą o łatwej integracji z aplikacjami webowymi,
+
+backendami oraz systemami security.
+
+
+Projekt udostępnia publiczną dokumentację w Swaggerze
+
+oraz wspiera obsługę nagłówków proxy (X‑Forwarded‑For),
+
+co pozwala na poprawne działanie za reverse proxy lub load balancerem.
