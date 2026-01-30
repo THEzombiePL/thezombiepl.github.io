@@ -8,7 +8,7 @@ import { Stack } from '@/components/sections/Stack';
 import { withBasePath } from '@/lib/basePath';
 
 export const metadata: Metadata = {
-	title: 'Fullstack Developer',
+	title: 'THEzombiePL',
 	description:
 		'Tworzę nowoczesne aplikacje webowe, backendy, API oraz ' +
 		'automatyzacje. Next.js, TypeScript, Node.js, DevOps.',
