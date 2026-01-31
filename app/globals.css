@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -122,6 +123,26 @@
 	}
 	body {
 		@apply bg-background text-foreground;
+	}
+
+	/* Konfiguracja Shiki / MDX Typography */
+	.prose pre {
+		@apply m-0! border-none! bg-transparent! p-0!;
+	}
+
+	.prose code {
+		@apply bg-transparent! p-0 font-normal!;
+	}
+
+	pre[data-language] {
+		@apply my-8 mx-2 overflow-x-auto rounded-xl p-3! text-sm leading-relaxed bg-card! hover:border-primary/30;
+		border: 1px solid var(--border) !important;
+		box-shadow: 0 0 0 1px oklch(1 0 0 / 10%);
+		transition: border-color 0.3s ease;
+	}
+
+	:not(pre) > code {
+		@apply rounded-md bg-muted px-1.5 py-0.5 text-[0.9em] font-medium text-primary;
 	}
 }
 

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import rehypePrettyCode, { Options } from 'rehype-pretty-code';
 import { ProjectBreadcrumbs } from '@/components/pages/projects/ProjectBreadcrumbs';
 import { ProjectGallery } from '@/components/pages/projects/ProjectGallery';
 import { ProjectLinks } from '@/components/pages/projects/ProjectLinks';
@@ -10,11 +11,18 @@ import { ProjectTimeline } from '@/components/pages/projects/ProjectTimeline';
 import { Badge } from '@/components/ui/badge';
 import { withBasePath } from '@/lib/basePath';
 import { getAllProjects, getProjectBySlug } from '@/lib/mdx';
+
 export const dynamic = 'force-static';
 export const revalidate = false;
+
 interface Props {
 	params: Promise<{ slug: string }>;
 }
+
+const rehypeOptions: Options = {
+	theme: 'monokai',
+	// keepBackground: false,
+};
 
 const statusConfig = {
 	ukonczony: {
@@ -177,7 +185,14 @@ export default async function ProjectPage({ params }: Props) {
 			<section>
 				<div className="mx-auto max-w-3xl px-6">
 					<article className="prose prose-invert">
-						<MDXRemote source={project.content} />
+						<MDXRemote
+							source={project.content}
+							options={{
+								mdxOptions: {
+									rehypePlugins: [[rehypePrettyCode, rehypeOptions]],
+								},
+							}}
+						/>
 					</article>
 				</div>
 			</section>
