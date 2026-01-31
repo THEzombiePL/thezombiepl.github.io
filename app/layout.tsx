@@ -2,9 +2,9 @@ import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { Header } from '@/components/header/Header';
 import './globals.css';
+import { BackgroundGrid } from '@/components/BackgroundGrid';
 import { Footer } from '@/components/footer/Footer';
 import { getMetadataBase } from '@/lib/siteUrl';
-import { BackgroundGrid } from '@/components/BackgroundGrid';
 
 const geistSans = Geist({
 	variable: '--font-geist-sans',
@@ -18,12 +18,12 @@ const geistMono = Geist_Mono({
 
 export const viewport: Viewport = {
 	themeColor: [
-		{ media: "(prefers-color-scheme: dark)", color: "#009869" },
-		{ media: "(prefers-color-scheme: light)", color: "#00468C" }
+		{ media: '(prefers-color-scheme: dark)', color: '#009869' },
+		{ media: '(prefers-color-scheme: light)', color: '#00468C' },
 	],
 	width: 'device-width',
 	initialScale: 1,
-}
+};
 
 export const metadata: Metadata = {
 	metadataBase: getMetadataBase(),

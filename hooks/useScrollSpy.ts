@@ -16,6 +16,8 @@ export function useScrollSpy(sectionIds: string[]) {
 		const getOffset = () => (window.innerWidth < 768 ? 56 : 72);
 
 		const onScroll = () => {
+			if (window.location.pathname !== '/') return;
+
 			const offset = getOffset();
 			const triggerRatio = window.innerWidth < 768 ? 0.2 : 0.15;
 			const triggerLine = offset + window.innerHeight * triggerRatio;
@@ -41,10 +43,14 @@ export function useScrollSpy(sectionIds: string[]) {
 
 			if (current && current !== active) {
 				setActive(current);
-				window.history.replaceState(null, '', `#${current}`);
+				if (window.location.pathname === '/') {
+					window.history.replaceState(null, '', `#${current}`);
+				}
 			} else if (!current && window.scrollY < 100) {
 				setActive(null);
-				window.history.replaceState(null, '', window.location.pathname);
+				if (window.location.pathname === '/') {
+					window.history.replaceState(null, '', window.location.pathname);
+				}
 			}
 		};
 
