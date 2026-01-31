@@ -125,7 +125,6 @@
 		@apply bg-background text-foreground;
 	}
 
-	/* Konfiguracja Shiki / MDX Typography */
 	.prose pre {
 		@apply m-0! border-none! bg-transparent! p-0!;
 	}

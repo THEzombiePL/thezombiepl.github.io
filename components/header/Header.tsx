@@ -6,10 +6,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useMemo, useState } from 'react';
-import { FaDiscord } from 'react-icons/fa';
+import { FaDiscord } from 'react-icons/fa6';
 import { useScrollSpy } from '@/hooks/useScrollSpy';
 import { withBasePath } from '@/lib/basePath';
 import { scrollToSection } from '@/lib/scrollToSection';
+import { ScrollProgress } from './ScrollProgress';
 
 interface NavLink {
 	label: string;
@@ -52,9 +53,10 @@ export function Header({ siteName = 'THEzombiePL' }) {
 	const active = useScrollSpy(sectionIds);
 
 	return (
-		<header className="fixed top-0 inset-x-0 z-50 bg-background/90 backdrop-blur border-b border-border">
+		<header className="fixed top-0 inset-x-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
 			<div className="w-full px-6">
 				<div className="flex h-16 items-center justify-between">
+					<ScrollProgress className="top-16 bg-none bg-primary" />
 					{/* LOGO */}
 					<Link href="/" className="flex items-center gap-2">
 						<Image
@@ -117,7 +119,7 @@ export function Header({ siteName = 'THEzombiePL' }) {
 
 			{/* MOBILE NAV */}
 			{open && (
-				<nav className="md:hidden border-t border-border bg-background">
+				<nav className="md:hidden border-t border-border bg-background/80 backdrop-blur-2xl">
 					<ul className="flex flex-col p-4 gap-4">
 						{navLinks.map((link) => {
 							const Icon = link.icon;

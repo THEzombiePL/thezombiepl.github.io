@@ -5,18 +5,19 @@ import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
 import type { Project } from '@/lib/mdx';
 import { withBasePath } from '@/lib/basePath';
+import { FaCheck, FaHourglassHalf } from 'react-icons/fa6';
 
 const statusConfig = {
 	ukonczony: {
 		label: 'Ukończony',
-		icon: '✔',
+		icon: <FaCheck className="text-[10px]" />,
 		className:
-			'bg-primary/80 text-primary-foreground shadow-lg backdrop-blur ring-1 ring-primary/40',
+			'bg-primary text-primary-foreground shadow-lg backdrop-blur-md ring-1 ring-primary/40',
 	},
 	'w-trakcie': {
 		label: 'W trakcie',
-		icon: '⏳',
-		className: 'bg-yellow-500/80 text-black shadow-lg backdrop-blur ring-1 ring-yellow-500/40',
+		icon: <FaHourglassHalf className="text-[10px]" />,
+		className: 'bg-yellow-500 text-black shadow-lg backdrop-blur-md ring-1 ring-yellow-500/40',
 	},
 } as const;
 
@@ -33,11 +34,14 @@ export function ProjectCard({
 		<Card
 			className="
 				group relative overflow-hidden
-				h-90 w-full
-				transition-all duration-300
-				hover:-translate-y-1 hover:shadow-xl
+				h-90 w-full bg-card
+				transition-all duration-500
+				hover:-translate-y-2 hover:shadow-[0_0_30px_-10px_rgba(34,197,94,0.3)]
+				border-primary/10 hover:border-primary/40
 			"
 		>
+			{/* BG ON HOVER */}
+			<div className="absolute inset-0 -z-10 bg-linear-to-br from-primary/10 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 			{/* LINK */}
 			<Link
 				prefetch={false}
@@ -83,6 +87,7 @@ export function ProjectCard({
 						<TechCover tech={tech} />
 					)}
 				</div>
+				{/* <div className="absolute inset-0 bg-primary/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" /> */}
 			</div>
 
 			{/* BODY */}
@@ -106,8 +111,8 @@ export function ProjectCard({
 			</div>
 
 			{/* BORDER GLOW */}
-			<div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-				<div className="absolute inset-0 rounded-xl ring-1 ring-primary/30" />
+			<div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+				<div className="absolute inset-0 rounded-xl ring-2 ring-primary/20 blur-[2px]" />
 			</div>
 		</Card>
 	);

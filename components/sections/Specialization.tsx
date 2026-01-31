@@ -1,7 +1,6 @@
 'use client';
 
-import { FaCogs } from 'react-icons/fa';
-import { FaCloud, FaRobot, FaServer } from 'react-icons/fa6';
+import { FaCloud, FaGears, FaRobot, FaServer } from 'react-icons/fa6';
 import { FadeInSection } from '@/components/FadeInSection';
 
 const items = [
@@ -23,7 +22,7 @@ const items = [
 	{
 		title: 'Automatyzacje & DevOps',
 		desc: 'Self-hosting, Docker, n8n, deployment i utrzymanie usług.',
-		icon: FaCogs,
+		icon: FaGears,
 	},
 ];
 

@@ -1,6 +1,7 @@
 'use client';
 
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
+import { LightRays } from '../LightRays';
 
 export function Hero() {
 	const prefersReducedMotion = useReducedMotion();
@@ -12,17 +13,19 @@ export function Hero() {
 
 	return (
 		<section className="relative pt-32 pb-24 overflow-hidden">
-			{/* PARALLAX BG */}
+			{/* LIGHT RAYS */}
+			<LightRays color="var(--primary)" className="opacity-20" />
+
+			{/* SUBTLE RADIAL GLOW */}
 			<motion.div
 				style={{ y }}
-				className="
-					pointer-events-none absolute inset-0
-					bg-[radial-gradient(circle_at_50%_35%,rgba(34,197,94,0.06),transparent_65%)]
+				className="pointer-events-none absolute inset-0
+				bg-[radial-gradient(circle_at_50%_35%,color-mix(in_srgb,var(--primary),transparent_94%),transparent_65%)]
 				"
 			/>
 			<div className="pointer-events-none absolute bottom-0 left-0 h-32 w-full bg-linear-to-b from-transparent to-background" />
 			<div className="relative mx-auto max-w-3xl px-6 text-center">
-				<h1 className="text-5xl font-bold leading-tight">
+				<h1 className="text-3xl sm:text-5xl font-bold leading-tight">
 					Hej, jestem <span className="text-primary">THEzombiePL</span>
 				</h1>
 

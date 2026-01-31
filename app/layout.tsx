@@ -4,6 +4,7 @@ import { Header } from '@/components/header/Header';
 import './globals.css';
 import { Footer } from '@/components/footer/Footer';
 import { getMetadataBase } from '@/lib/siteUrl';
+import { BackgroundGrid } from '@/components/BackgroundGrid';
 
 const geistSans = Geist({
 	variable: '--font-geist-sans',
@@ -40,7 +41,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 		<html lang="pl" className="dark">
 			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
 				<Header />
-
+				<BackgroundGrid />
 				<main className="pt-16">{children}</main>
 				<Footer />
 			</body>

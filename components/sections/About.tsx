@@ -6,8 +6,8 @@ export function About() {
 	return (
 		<FadeInSection>
 			<section id="about" className="scroll-mt-20 py-24">
-				<div className="content">
-					<h2 className="mb-4 text-3xl font-bold">O mnie</h2>
+				<div className="mx-auto max-w-5xl px-6">
+					<h2 className="mb-6 text-3xl font-bold">O mnie</h2>
 
 					<p className="max-w-3xl text-lg leading-relaxed text-muted-foreground">
 						Jestem programistą skupionym na tworzeniu nowoczesnych aplikacji webowych

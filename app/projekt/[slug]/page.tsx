@@ -11,6 +11,7 @@ import { ProjectTimeline } from '@/components/pages/projects/ProjectTimeline';
 import { Badge } from '@/components/ui/badge';
 import { withBasePath } from '@/lib/basePath';
 import { getAllProjects, getProjectBySlug } from '@/lib/mdx';
+import { FaCheck, FaHourglassHalf } from 'react-icons/fa6';
 
 export const dynamic = 'force-static';
 export const revalidate = false;
@@ -27,13 +28,14 @@ const rehypeOptions: Options = {
 const statusConfig = {
 	ukonczony: {
 		label: 'Ukończony',
-		icon: '✔',
-		className: 'bg-primary/15 text-primary ring-1 ring-primary/30',
+		icon: <FaCheck className="text-[10px]" />,
+		className:
+			'bg-primary text-primary-foreground shadow-lg backdrop-blur-md ring-1 ring-primary/40',
 	},
 	'w-trakcie': {
 		label: 'W trakcie',
-		icon: '⏳',
-		className: 'bg-yellow-500/15 text-yellow-400 ring-1 ring-yellow-500/30',
+		icon: <FaHourglassHalf className="text-[10px]" />,
+		className: 'bg-yellow-500 text-black shadow-lg backdrop-blur-md ring-1 ring-yellow-500/40',
 	},
 } as const;
 

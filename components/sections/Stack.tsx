@@ -108,9 +108,9 @@ export function Stack() {
 							<div
 								key={group.category}
 								className="
-									rounded-2xl border border-border bg-background/80 p-6
-									transition-all
-									hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5
+									group relative rounded-2xl border border-border bg-background/50 p-6
+									backdrop-blur-md transition-all duration-300
+									hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5
 								"
 							>
 								<h3 className="mb-6 text-sm font-semibold uppercase tracking-widest text-primary">
@@ -122,19 +122,19 @@ export function Stack() {
 										<div
 											key={item.name}
 											className={`
-												group flex items-center gap-3
-												text-sm 
-												transition-colors duration-300
+												flex items-center gap-3 text-sm transition-all duration-500
+												grayscale opacity-50 
+												group-hover:grayscale-0 group-hover:opacity-100
 												${item.color}
 											`}
 										>
 											<item.icon
 												className="
-												h-6 w-6
-												transition-transform duration-200
-												group-hover:scale-110
-												group-hover:drop-shadow-[0_0_6px_rgba(34,197,94,0.35)]
-											"
+													h-6 w-6
+													transition-transform duration-300
+													group-hover:scale-110
+													group-hover:drop-shadow-[0_0_8px_rgba(34,197,94,0.4)]
+												"
 											/>
 											<span className="font-medium text-foreground/80">
 												{item.name}
