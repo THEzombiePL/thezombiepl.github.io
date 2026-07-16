@@ -204,7 +204,7 @@ export function Header({ siteName = 'THEzombiePL' }) {
 								onClick={closeMenu}
 							>
 								<Image
-									src={withBasePath('/images/thezombiepl.png')}
+									src={withBasePath('/images/thezombiepl.webp')}
 									alt={siteName}
 									width={40}
 									height={40}

@@ -15,7 +15,7 @@ export function Footer() {
 					<div className="flex flex-col items-center text-center lg:items-start lg:text-left">
 						<div className="flex items-center gap-2">
 							<Image
-								src={withBasePath('/images/thezombiepl.png')}
+								src={withBasePath('/images/thezombiepl.webp')}
 								alt="THEzombiePL"
 								width={36}
 								height={36}
