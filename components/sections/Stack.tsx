@@ -13,7 +13,8 @@ import {
 	SiTailwindcss,
 	SiTypescript,
 } from 'react-icons/si';
-import { FadeInSection } from '@/components/FadeInSection';
+import { Magnetic } from '../animations/Magnetic';
+import { RevealStagger, FadeIn, SlideIn } from '../animations/Reveal';
 
 const techStack = [
 	{
@@ -96,58 +97,65 @@ const techStack = [
 export function Stack() {
 	return (
 		<section id="stack" className="scroll-mt-16 py-16 bg-accent/5 md:scroll-mt-20 md:py-24">
-			<FadeInSection>
+			<RevealStagger>
 				<div className="mx-auto max-w-5xl px-6">
-					<h2 className="text-3xl font-bold">Stack Technologiczny</h2>
-					<p className="mt-4 text-muted-foreground">
-						Narzędzia i technologie, których używam na co dzień.
-					</p>
+					<FadeIn>
+						<h2 className="text-3xl font-bold tracking-tight">Stack Technologiczny</h2>
+						<p className="mt-4 text-muted-foreground">
+							Narzędzia i technologie, których używam na co dzień.
+						</p>
+					</FadeIn>
 
 					<div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-						{techStack.map((group) => (
-							<div
-								key={group.category}
-								className="
-									group relative rounded-2xl border border-border bg-background/50 p-6
-									backdrop-blur-md transition-all duration-300
-									hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5
-								"
-							>
-								<h3 className="mb-6 text-sm font-semibold uppercase tracking-widest text-primary">
-									{group.category}
-								</h3>
+						{techStack.map((group, i) => (
+							<SlideIn direction={i % 2 === 0 ? 'left' : 'right'} key={group.category} className="h-full">
+								<div
+									className="
+										h-full group relative rounded-2xl border border-border bg-background/50 p-6
+										backdrop-blur-md transition-all duration-300
+										hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5
+									"
+								>
+									<h3 className="mb-6 text-sm font-semibold uppercase tracking-widest text-primary">
+										{group.category}
+									</h3>
 
-								<div className="grid gap-4">
-									{group.items.map((item) => (
-										<div
-											key={item.name}
-											className={`
-												flex items-center gap-3 text-sm transition-all duration-500
-												grayscale opacity-50 
-												group-hover:grayscale-0 group-hover:opacity-100
-												${item.color}
-											`}
-										>
-											<item.icon
-												aria-hidden="true"
-												className="
-													h-6 w-6
-													transition-transform duration-300
-													group-hover:scale-110
-													group-hover:drop-shadow-[0_0_8px_rgba(34,197,94,0.4)]
-												"
-											/>
-											<span className="font-medium text-foreground/80">
-												{item.name}
-											</span>
-										</div>
-									))}
+									<div className="grid gap-4">
+										{group.items.map((item) => (
+											<div
+												key={item.name}
+												className={`
+													flex items-center gap-3 text-sm transition-all duration-500
+													grayscale opacity-50 
+													group-hover:grayscale-0 group-hover:opacity-100
+													${item.color}
+												`}
+											>
+												<Magnetic strength={0.2}>
+													<div className="flex h-10 w-10 items-center justify-center rounded-xl bg-background shadow-sm border border-border/50 group-hover:border-primary/20 transition-colors">
+														<item.icon
+															aria-hidden="true"
+															className="
+																h-5 w-5
+																transition-transform duration-300
+																group-hover:scale-110
+																group-hover:drop-shadow-[0_0_8px_rgba(34,197,94,0.4)]
+															"
+														/>
+													</div>
+												</Magnetic>
+												<span className="font-medium text-foreground/80">
+													{item.name}
+												</span>
+											</div>
+										))}
+									</div>
 								</div>
-							</div>
+							</SlideIn>
 						))}
 					</div>
 				</div>
-			</FadeInSection>
+			</RevealStagger>
 		</section>
 	);
 }

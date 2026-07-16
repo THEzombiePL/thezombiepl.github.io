@@ -1,15 +1,18 @@
+'use client';
+
 import Link from 'next/link';
 import { FaDiscord, FaEnvelope, FaServer } from 'react-icons/fa6';
-import { FadeInSection } from '@/components/FadeInSection';
+import { FadeIn, RevealStagger, ScaleIn } from '../animations/Reveal';
 import { LightRays } from '../LightRays';
+import { motion } from 'framer-motion';
 
 export function Contact() {
 	return (
-		<FadeInSection delay={0.05}>
-			<section
-				id="contact"
-				className="relative overflow-hidden py-16 scroll-mt-16 md:py-28 md:scroll-mt-20"
-			>
+		<section
+			id="contact"
+			className="relative overflow-hidden py-16 scroll-mt-16 md:py-28 md:scroll-mt-20"
+		>
+			<RevealStagger>
 				<div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-primary/20 to-transparent" />
 				<LightRays
 					direction="up"
@@ -20,43 +23,51 @@ export function Contact() {
 				/>
 
 				<div className="relative mx-auto max-w-4xl px-6 text-center">
-					<h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
-						Zostańmy w <span className="text-primary">kontakcie</span>
-					</h2>
+					<FadeIn>
+						<h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
+							Zostańmy w <span className="text-primary">kontakcie</span>
+						</h2>
 
-					<p className="mx-auto mb-12 max-w-md text-muted-foreground">
-						Masz pytanie lub propozycję współpracy? Odezwij się do mnie najszybciej
-						przez Discorda lub mailowo.
-					</p>
+						<p className="mx-auto mb-12 max-w-md text-muted-foreground">
+							Masz pytanie lub propozycję współpracy? Odezwij się do mnie najszybciej
+							przez Discorda lub mailowo.
+						</p>
+					</FadeIn>
 
 					<div className="grid gap-4 sm:grid-cols-3">
 						{/* DISCORD */}
-						<ContactCard
-							href="https://discord.com/users/617421492744880159"
-							icon={<FaDiscord className="text-2xl" />}
-							label="Discord"
-							value="thezombiepl"
-						/>
+						<ScaleIn>
+							<ContactCard
+								href="https://discord.com/users/617421492744880159"
+								icon={<FaDiscord className="text-2xl" />}
+								label="Discord"
+								value="thezombiepl"
+							/>
+						</ScaleIn>
 
 						{/* SERWER */}
-						<ContactCard
-							href="https://discord.gg/MsfFy8ZdJf"
-							icon={<FaServer className="text-2xl" />}
-							label="Serwer"
-							value="GamingZone"
-						/>
+						<ScaleIn>
+							<ContactCard
+								href="https://discord.gg/MsfFy8ZdJf"
+								icon={<FaServer className="text-2xl" />}
+								label="Serwer"
+								value="GamingZone"
+							/>
+						</ScaleIn>
 
 						{/* MAIL */}
-						<ContactCard
-							href="mailto:kontakt@zombiebot.pl"
-							icon={<FaEnvelope className="text-2xl" />}
-							label="Email"
-							value="kontakt@zombiebot.pl"
-						/>
+						<ScaleIn>
+							<ContactCard
+								href="mailto:kontakt@zombiebot.pl"
+								icon={<FaEnvelope className="text-2xl" />}
+								label="Email"
+								value="kontakt@zombiebot.pl"
+							/>
+						</ScaleIn>
 					</div>
 				</div>
-			</section>
-		</FadeInSection>
+			</RevealStagger>
+		</section>
 	);
 }
 
@@ -72,23 +83,24 @@ function ContactCard({
 	value: string;
 }) {
 	return (
-		<Link
-			href={href}
-			target="_blank"
-			className="group relative flex flex-col items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:bg-primary/[0.03]"
-			// className="group relative flex flex-col items-center gap-3 rounded-xl border border-white/5 bg-white/[0.02] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:bg-primary/[0.03]"
-		>
-			<div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110">
-				{icon}
-			</div>
-			<div className="flex flex-col">
-				<span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-					{label}
-				</span>
-				<span className="text-sm font-medium text-foreground">{value}</span>
-			</div>
+		<motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.95 }} className="h-full">
+			<Link
+				href={href}
+				target="_blank"
+				className="group relative flex h-full flex-col items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-6 transition-all duration-300 hover:border-primary/30 hover:bg-primary/[0.03]"
+			>
+				<div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110">
+					{icon}
+				</div>
+				<div className="flex flex-col">
+					<span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+						{label}
+					</span>
+					<span className="text-sm font-medium text-foreground">{value}</span>
+				</div>
 
-			<div className="absolute inset-0 -z-10 opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-20 bg-primary" />
-		</Link>
+				<div className="absolute inset-0 -z-10 opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-20 bg-primary" />
+			</Link>
+		</motion.div>
 	);
 }

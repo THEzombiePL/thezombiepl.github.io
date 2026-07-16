@@ -1,9 +1,11 @@
+'use client';
+
 import Image from 'next-export-optimize-images/image';
 import Link from 'next/link';
 import { FaCheck, FaHourglassHalf } from 'react-icons/fa6';
 import { TechCover } from '@/components/TechCover';
 import { Badge } from '@/components/ui/badge';
-import { Card } from '@/components/ui/card';
+import { motion } from 'framer-motion';
 import { withBasePath } from '@/lib/basePath';
 import type { Project } from '@/lib/mdx';
 
@@ -36,13 +38,16 @@ export function ProjectCard({
 	featured,
 }: Project & { position?: number }) {
 	return (
-		<Card
+		<motion.div
+			whileHover={{ y: -8, scale: 1.02 }}
+			whileTap={{ scale: 0.98 }}
+			transition={{ type: 'spring', stiffness: 400, damping: 25 }}
 			className="
-				group relative overflow-hidden
-				h-90 w-full bg-card
-				transition-all duration-500
-				hover:-translate-y-2 hover:shadow-[0_0_30px_-10px_rgba(34,197,94,0.3)]
-				border-primary/10 hover:border-primary/40
+				group relative overflow-hidden rounded-xl border
+				h-90 w-full bg-card shadow-sm
+				transition-colors duration-500
+				hover:shadow-[0_0_40px_-10px_rgba(var(--primary),0.2)]
+				border-primary/10 hover:border-primary/30
 			"
 		>
 			{/* BG ON HOVER */}
@@ -119,6 +124,6 @@ export function ProjectCard({
 			<div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
 				<div className="absolute inset-0 rounded-xl ring-2 ring-primary/20 blur-[2px]" />
 			</div>
-		</Card>
+		</motion.div>
 	);
 }

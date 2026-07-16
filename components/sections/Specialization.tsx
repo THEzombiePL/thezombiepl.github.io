@@ -1,7 +1,8 @@
 'use client';
 
 import { FaCloud, FaGears, FaRobot, FaServer } from 'react-icons/fa6';
-import { FadeInSection } from '@/components/FadeInSection';
+import { TiltCard } from '../animations/TiltCard';
+import { RevealStagger, FadeIn, ScaleIn } from '../animations/Reveal';
 
 const items = [
 	{
@@ -29,35 +30,40 @@ const items = [
 export function Specialization() {
 	return (
 		<section id="specialization" className="scroll-mt-16 py-16 md:scroll-mt-20 md:py-24">
-			<FadeInSection>
+			<RevealStagger>
 				<div className="mx-auto max-w-5xl px-4 sm:px-6">
-					<h2 className="text-2xl font-bold sm:text-3xl">Specjalizacja</h2>
-					<p className="mt-3 text-muted-foreground sm:mt-4">
-						Tym zajmuję się na co dzień.
-					</p>
+					<FadeIn>
+						<h2 className="text-2xl font-bold sm:text-3xl tracking-tight">Specjalizacja</h2>
+						<p className="mt-3 text-muted-foreground sm:mt-4">
+							Tym zajmuję się na co dzień.
+						</p>
+					</FadeIn>
 
-					<div className="mt-8 grid gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-6">
+					<div className="mt-8 grid gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-6 perspective-1000">
 						{items.map((item) => (
-							<div
-								key={item.title}
-								className="
-									rounded-2xl border border-border bg-background/80 p-6
-									transition-all
-									hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5
-								"
-							>
-								<div className="mb-4 text-primary">
-									<item.icon className="h-7 w-7" />
-								</div>
+							<ScaleIn key={item.title} className="h-full">
+								<TiltCard rotationAmount={25} className="h-full group">
+									<div
+										className="
+											h-full rounded-2xl border border-border bg-background/80 p-6
+											transition-all duration-300
+											group-hover:border-primary/40 group-hover:bg-primary/[0.03] group-hover:shadow-2xl group-hover:shadow-primary/10
+										"
+									>
+										<div className="mb-4 text-primary transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-1 origin-left">
+											<item.icon className="h-7 w-7 drop-shadow-sm" />
+										</div>
 
-								<h3 className="mb-2 font-semibold">{item.title}</h3>
+										<h3 className="mb-2 font-semibold text-lg">{item.title}</h3>
 
-								<p className="text-sm text-muted-foreground">{item.desc}</p>
-							</div>
+										<p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+									</div>
+								</TiltCard>
+							</ScaleIn>
 						))}
 					</div>
 				</div>
-			</FadeInSection>
+			</RevealStagger>
 		</section>
 	);
 }
