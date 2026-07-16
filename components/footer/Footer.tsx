@@ -40,9 +40,9 @@ export function Footer() {
 					<div className="grid grid-cols-2 gap-10 lg:col-span-2 lg:grid-cols-2">
 						{/* NAV */}
 						<div className="text-center lg:text-left">
-							<h4 className="mb-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+							<p className="mb-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
 								Nawigacja
-							</h4>
+							</p>
 							<ul className="grid gap-2 text-sm">
 								<li>
 									<Link href="/#about" className="hover:text-primary transition">
@@ -70,9 +70,9 @@ export function Footer() {
 
 						{/* SOCIALS */}
 						<div className="text-center lg:text-left">
-							<h4 className="mb-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+							<p className="mb-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
 								Sociale
-							</h4>
+							</p>
 
 							<div className="flex justify-center gap-5 lg:justify-start">
 								<Link

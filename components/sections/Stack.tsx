@@ -129,6 +129,7 @@ export function Stack() {
 											`}
 										>
 											<item.icon
+												aria-hidden="true"
 												className="
 													h-6 w-6
 													transition-transform duration-300
