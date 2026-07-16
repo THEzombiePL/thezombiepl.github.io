@@ -156,24 +156,23 @@ export function Header({ siteName = 'THEzombiePL' }) {
 
 			{/* Outer pad drives the float inset */}
 			<motion.div
-				className="pointer-events-auto relative z-50 mx-auto w-full"
-				animate={{
-					paddingTop: isFloating ? (window.innerWidth < 640 ? '0.75rem' : '1rem') : '0rem',
-					paddingLeft: isFloating ? (window.innerWidth < 640 ? '0.75rem' : '1rem') : '0rem',
-					paddingRight: isFloating ? (window.innerWidth < 640 ? '0.75rem' : '1rem') : '0rem',
-				}}
+				layout
+				className={cn(
+					'pointer-events-auto relative z-50 mx-auto w-full',
+					isFloating ? 'px-3 pt-3 sm:px-4 sm:pt-4' : 'px-0 pt-0'
+				)}
 				transition={springConfig}
 			>
 				<motion.div
+					layout
 					className={cn(
 						'relative mx-auto overflow-hidden border backdrop-blur-3xl',
 						'transition-[background-color,border-color,box-shadow] duration-500',
 						isFloating
-							? 'border-primary/20 bg-background/85 shadow-[0_16px_40px_-12px_rgba(0,0,0,0.5)]'
-							: 'border-transparent border-b-border/40 bg-background/60 shadow-none',
+							? 'max-w-[880px] border-primary/20 bg-background/85 shadow-[0_16px_40px_-12px_rgba(0,0,0,0.5)]'
+							: 'max-w-none border-transparent border-b-border/40 bg-background/60 shadow-none',
 					)}
 					animate={{
-						maxWidth: isFloating ? '880px' : '100%',
 						borderRadius: open
 							? isFloating
 								? '24px'
