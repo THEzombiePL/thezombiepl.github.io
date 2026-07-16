@@ -155,33 +155,27 @@ export function Header({ siteName = 'THEzombiePL' }) {
 			</AnimatePresence>
 
 			{/* Outer pad drives the float inset */}
-			<motion.div
-				layout
+			<div
 				className={cn(
-					'pointer-events-auto relative z-50 mx-auto w-full',
+					'pointer-events-auto relative z-50 mx-auto w-full transition-[padding] duration-500 ease-out',
 					isFloating ? 'px-3 pt-3 sm:px-4 sm:pt-4' : 'px-0 pt-0'
 				)}
-				transition={springConfig}
 			>
-				<motion.div
-					layout
+				<div
 					className={cn(
 						'relative mx-auto overflow-hidden border backdrop-blur-3xl',
-						'transition-[background-color,border-color,box-shadow] duration-500',
+						'transition-[max-width,border-radius,background-color,border-color,box-shadow] duration-500 ease-out',
 						isFloating
 							? 'max-w-[880px] border-primary/20 bg-background/85 shadow-[0_16px_40px_-12px_rgba(0,0,0,0.5)]'
-							: 'max-w-none border-transparent border-b-border/40 bg-background/60 shadow-none',
-					)}
-					animate={{
-						borderRadius: open
+							: 'max-w-full border-transparent border-b-border/40 bg-background/60 shadow-none',
+						open
 							? isFloating
-								? '24px'
-								: '0px 0px 24px 24px'
+								? 'rounded-[24px]'
+								: 'rounded-none rounded-b-[24px]'
 							: isFloating
-								? '9999px'
-								: '0px',
-					}}
-					transition={springConfig}
+								? 'rounded-full'
+								: 'rounded-none'
+					)}
 				>
 					<div
 						aria-hidden
@@ -406,8 +400,8 @@ export function Header({ siteName = 'THEzombiePL' }) {
 					</AnimatePresence>
 
 					{!open && <ScrollProgress />}
-				</motion.div>
-			</motion.div>
+				</div>
+			</div>
 		</header>
 	);
 }
