@@ -11,6 +11,8 @@ const nextConfig: NextConfig = {
 	images: {
 		unoptimized: true,
 	},
+	cacheComponents: true,
+	partialPrefetching: true,
 	transpilePackages: ['next-mdx-remote'],
 };
 export default nextConfig;
