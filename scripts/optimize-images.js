@@ -22,7 +22,7 @@ async function processImages() {
 
 				await pipeline.webp({ quality: 90 }).toFile(outputPath);
 				console.log(`Converted ${file} to webp`);
-				
+
 				// Usuń stary plik png
 				fs.unlinkSync(inputPath);
 			} catch (e) {

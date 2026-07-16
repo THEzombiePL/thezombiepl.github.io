@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
-import rehypePrettyCode, { Options } from 'rehype-pretty-code';
+import { FaCheck, FaHourglassHalf } from 'react-icons/fa6';
+import rehypePrettyCode, { type Options } from 'rehype-pretty-code';
 import { ProjectBreadcrumbs } from '@/components/pages/projects/ProjectBreadcrumbs';
 import { ProjectGallery } from '@/components/pages/projects/ProjectGallery';
 import { ProjectLinks } from '@/components/pages/projects/ProjectLinks';
@@ -11,7 +12,6 @@ import { ProjectTimeline } from '@/components/pages/projects/ProjectTimeline';
 import { Badge } from '@/components/ui/badge';
 import { withBasePath } from '@/lib/basePath';
 import { getAllProjects, getProjectBySlug } from '@/lib/mdx';
-import { FaCheck, FaHourglassHalf } from 'react-icons/fa6';
 
 export const dynamic = 'force-static';
 export const revalidate = false;

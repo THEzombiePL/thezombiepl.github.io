@@ -1,5 +1,5 @@
 import type { NextConfig } from 'next';
-import { getBasePath } from './lib/basePath';
+import { getBasePath } from './lib/basePath.ts';
 
 const basePath = getBasePath();
 

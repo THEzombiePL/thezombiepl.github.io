@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect, useState, type CSSProperties } from 'react';
 import { motion } from 'framer-motion';
+import { type CSSProperties, useEffect, useState } from 'react';
 
 import { cn } from '@/lib/utils';
 
@@ -136,9 +136,10 @@ export function LightRays({
 					className="absolute inset-0 opacity-60"
 					style={
 						{
-							background: direction === 'down' 
-								? 'radial-gradient(circle at 20% 15%, color-mix(in srgb, var(--light-rays-color) 45%, transparent), transparent 70%)'
-								: 'radial-gradient(circle at 20% 85%, color-mix(in srgb, var(--light-rays-color) 45%, transparent), transparent 70%)',
+							background:
+								direction === 'down'
+									? 'radial-gradient(circle at 20% 15%, color-mix(in srgb, var(--light-rays-color) 45%, transparent), transparent 70%)'
+									: 'radial-gradient(circle at 20% 85%, color-mix(in srgb, var(--light-rays-color) 45%, transparent), transparent 70%)',
 						} as CSSProperties
 					}
 				/>
@@ -147,13 +148,14 @@ export function LightRays({
 					className="absolute inset-0 opacity-60"
 					style={
 						{
-							background: direction === 'down'
-								? 'radial-gradient(circle at 80% 10%, color-mix(in srgb, var(--light-rays-color) 35%, transparent), transparent 75%)'
-								: 'radial-gradient(circle at 80% 90%, color-mix(in srgb, var(--light-rays-color) 35%, transparent), transparent 75%)',
+							background:
+								direction === 'down'
+									? 'radial-gradient(circle at 80% 10%, color-mix(in srgb, var(--light-rays-color) 35%, transparent), transparent 75%)'
+									: 'radial-gradient(circle at 80% 90%, color-mix(in srgb, var(--light-rays-color) 35%, transparent), transparent 75%)',
 						} as CSSProperties
 					}
 				/>
-				
+
 				{rays.map((ray) => (
 					<Ray key={ray.id} {...ray} direction={direction} />
 				))}

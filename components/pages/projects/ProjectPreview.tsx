@@ -24,6 +24,7 @@ export function ProjectPreview({ url, title }: { url: string; title: string }) {
 					href={url}
 					target="_blank"
 					className="rounded-lg bg-primary px-4 py-2 text-primary-foreground hover:opacity-90"
+					rel="noopener"
 				>
 					Otwórz stronę →
 				</a>
@@ -50,7 +51,12 @@ export function ProjectPreview({ url, title }: { url: string; title: string }) {
 				/>
 			</div>
 
-			<a href={url} target="_blank" className="text-sm text-muted-foreground underline">
+			<a
+				href={url}
+				target="_blank"
+				className="text-sm text-muted-foreground underline"
+				rel="noopener"
+			>
 				Otwórz w nowej karcie →
 			</a>
 		</div>

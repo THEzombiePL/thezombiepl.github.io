@@ -14,4 +14,5 @@ export function getBasePath(): string {
 }
 
 const withBasePath = (path: string) => `${getBasePath()}${path}`;
+
 export { withBasePath };

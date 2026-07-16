@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { FaCheck, FaHourglassHalf } from 'react-icons/fa6';
 import { TechCover } from '@/components/TechCover';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
-import type { Project } from '@/lib/mdx';
 import { withBasePath } from '@/lib/basePath';
-import { FaCheck, FaHourglassHalf } from 'react-icons/fa6';
+import type { Project } from '@/lib/mdx';
 
 const statusConfig = {
 	ukonczony: {
