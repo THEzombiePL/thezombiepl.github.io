@@ -50,7 +50,7 @@ const spySections: SectionSpyEntry[] = [
 ];
 
 const springConfig = {
-	type: 'spring',
+	type: 'spring' as const,
 	stiffness: 280,
 	damping: 24,
 	mass: 0.8,
