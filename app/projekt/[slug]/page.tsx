@@ -133,6 +133,7 @@ export default async function ProjectPage({ params }: Props) {
 										: 'object-cover'
 								}
 								priority
+								fetchPriority="high"
 							/>
 						</div>
 					</div>
