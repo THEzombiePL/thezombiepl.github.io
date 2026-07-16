@@ -13,9 +13,6 @@ import { Badge } from '@/components/ui/badge';
 import { withBasePath } from '@/lib/basePath';
 import { getAllProjects, getProjectBySlug } from '@/lib/mdx';
 
-export const dynamic = 'force-static';
-export const revalidate = false;
-
 interface Props {
 	params: Promise<{ slug: string }>;
 }
