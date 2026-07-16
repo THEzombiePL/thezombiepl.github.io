@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
+import Image from 'next-export-optimize-images/image';
 import { withBasePath } from '@/lib/basePath';
 
 interface GalleryItem {
@@ -307,12 +308,12 @@ export function ProjectGallery({ images }: ProjectGalleryProps) {
 						className="group relative block w-full cursor-pointer overflow-hidden rounded-xl border-0 bg-transparent p-0"
 					>
 						<div className="relative aspect-4/3 w-full overflow-hidden bg-gray-100">
-							{/* biome-ignore lint/performance/noImgElement: Standard img is better for arbitrary aspect ratio handling without explicit width/height */}
-							<img
-								// src={img.src}
+							<Image
 								src={withBasePath(img.src)}
 								alt={img.caption ?? ''}
-								className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+								fill
+								sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+								className="object-cover transition-transform duration-300 group-hover:scale-105"
 							/>
 						</div>
 						{img.caption && (
@@ -382,12 +383,12 @@ export function ProjectGallery({ images }: ProjectGalleryProps) {
 									isPortrait ? 'aspect-9/16 max-h-[90vh]' : 'aspect-16/10'
 								}`}
 							>
-								{/* biome-ignore lint/performance/noImgElement: Direct manipulation of style/transform is required here */}
-								<img
-									// src={images[active].src}
+								<Image
 									src={withBasePath(images[active].src)}
 									alt=""
-									className="h-full w-full object-contain"
+									fill
+									sizes="100vw"
+									className="object-contain"
 									onLoad={(e: React.SyntheticEvent<HTMLImageElement>) => {
 										const img = e.currentTarget as HTMLImageElement;
 										const ratio = img.naturalHeight / img.naturalWidth;
