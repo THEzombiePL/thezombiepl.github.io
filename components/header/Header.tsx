@@ -9,7 +9,7 @@ import {
 } from 'framer-motion';
 import type { LucideIcon } from 'lucide-react';
 import { Folder, Mail, Menu, User, X } from 'lucide-react';
-import Image from 'next/image';
+import Image from 'next-export-optimize-images/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useMemo, useState } from 'react';

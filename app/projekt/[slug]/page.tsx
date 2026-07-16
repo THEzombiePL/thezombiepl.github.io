@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from 'next-export-optimize-images/image';
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { FaCheck, FaHourglassHalf } from 'react-icons/fa6';

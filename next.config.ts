@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next';
+import withExportImages from 'next-export-optimize-images';
 const getBasePath = (): string => {
 	const raw = process.env.NEXT_PUBLIC_REPO_NAME || process.env.GITHUB_REPOSITORY?.split('/')[1] || '';
 	if (!raw) return '';
@@ -14,10 +15,8 @@ const nextConfig: NextConfig = {
 	basePath,
 	assetPrefix: basePath,
 	trailingSlash: true,
-	images: {
-		unoptimized: true,
-	},
+
 
 	transpilePackages: ['next-mdx-remote'],
 };
-export default nextConfig;
+export default withExportImages(nextConfig);

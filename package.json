@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "next dev",
 		"og": "node scripts/generate-og.js",
-		"build": "npm run og && next build",
+		"build": "npm run og && next build && next-export-optimize-images",
 		"start": "next start",
 		"lint": "biome check .",
 		"lint:fix": "biome check --write .",
@@ -41,6 +41,7 @@
 		"@types/react-dom": "^19.2.3",
 		"dotenv": "^17.4.2",
 		"knip": "^5.88.1",
+		"next-export-optimize-images": "^4.7.0",
 		"tailwindcss": "^4.3.3",
 		"typescript": "^5.9.3"
 	}

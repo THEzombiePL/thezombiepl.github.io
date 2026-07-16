@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import Image from 'next/image';
+import Image from 'next-export-optimize-images/image';
 import { withBasePath } from '@/lib/basePath';
 
 const OG_DIR = path.join(process.cwd(), 'public/og/projects');
