@@ -1,10 +1,17 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaDiscord, FaGithub } from 'react-icons/fa6';
 import { withBasePath } from '@/lib/basePath';
 
+import { useState, useEffect } from 'react';
+
 export function Footer() {
-	const year = new Date().getFullYear();
+	const [year, setYear] = useState<number>(2026);
+	useEffect(() => {
+		setYear(new Date().getFullYear());
+	}, []);
 
 	return (
 		<footer className="border-t border-border bg-background">
