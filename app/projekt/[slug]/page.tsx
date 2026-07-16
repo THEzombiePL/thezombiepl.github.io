@@ -122,15 +122,17 @@ export default async function ProjectPage({ params }: Props) {
 			{project.hero && (
 				<section className="pb-24">
 					<div className="mx-auto max-w-6xl px-6">
-						<div className="relative aspect-video overflow-hidden rounded-2xl bg-muted/40">
+						<div className="relative overflow-hidden rounded-2xl bg-muted/40 border border-border/40 shadow-xl">
 							<Image
 								src={withBasePath(project.hero.src)}
 								alt={project.hero.caption ?? project.title}
-								fill
+								width={1920}
+								height={1080}
+								sizes="(max-width: 1200px) 100vw, 1200px"
 								className={
 									project.hero.type === 'logo'
-										? 'object-contain p-12'
-										: 'object-cover'
+										? 'object-contain p-12 w-full h-auto'
+										: 'object-contain w-full h-auto'
 								}
 								priority
 								fetchPriority="high"
