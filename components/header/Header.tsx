@@ -49,16 +49,12 @@ const spySections: SectionSpyEntry[] = [
 	{ id: 'contact', navId: 'contact' },
 ];
 
-const shellSpring = {
-	type: 'spring' as const,
-	stiffness: 380,
-	damping: 36,
+const springConfig = {
+	type: 'spring',
+	stiffness: 280,
+	damping: 24,
 	mass: 0.8,
 };
-
-const easeOutExpo = [0.16, 1, 0.3, 1] as const;
-
-const shellEase = 'duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none';
 
 function isExternal(href: string) {
 	return href.startsWith('http');
@@ -148,7 +144,7 @@ export function Header({ siteName = 'THEzombiePL' }) {
 						initial={reduceMotion ? false : { opacity: 0 }}
 						animate={{ opacity: 1 }}
 						exit={reduceMotion ? undefined : { opacity: 0 }}
-						transition={{ duration: 0.2, ease: easeOutExpo }}
+						transition={{ duration: 0.2 }}
 						className="pointer-events-auto fixed inset-0 z-40 touch-none overscroll-none bg-black/50 backdrop-blur-[2px] lg:hidden"
 						onPointerDown={(e) => {
 							e.preventDefault();
@@ -159,35 +155,39 @@ export function Header({ siteName = 'THEzombiePL' }) {
 			</AnimatePresence>
 
 			{/* Outer pad drives the float inset */}
-			<div
-				className={cn(
-					'pointer-events-auto relative z-50 mx-auto w-full transition-[padding]',
-					shellEase,
-					isFloating ? 'px-2.5 pt-2.5 sm:px-3 sm:pt-3 md:px-4 md:pt-4' : 'px-0 pt-0',
-				)}
+			<motion.div
+				className="pointer-events-auto relative z-50 mx-auto w-full"
+				animate={{
+					paddingTop: isFloating ? (window.innerWidth < 640 ? '0.75rem' : '1rem') : '0rem',
+					paddingLeft: isFloating ? (window.innerWidth < 640 ? '0.75rem' : '1rem') : '0rem',
+					paddingRight: isFloating ? (window.innerWidth < 640 ? '0.75rem' : '1rem') : '0rem',
+				}}
+				transition={springConfig}
 			>
-				<div
+				<motion.div
 					className={cn(
-						'relative mx-auto overflow-hidden border backdrop-blur-2xl',
-						'transition-[max-width,border-radius,background-color,box-shadow,border-color]',
-						shellEase,
+						'relative mx-auto overflow-hidden border backdrop-blur-3xl',
+						'transition-[background-color,border-color,box-shadow] duration-500',
 						isFloating
-							? 'max-w-5xl border-border/50 bg-background/75 shadow-[0_12px_40px_rgba(0,0,0,0.28)]'
-							: 'max-w-none border-transparent border-b-border/70 bg-background/70 shadow-none',
-						open
-							? isFloating
-								? 'rounded-2xl'
-								: 'rounded-none rounded-b-2xl border-border/40'
-							: isFloating
-								? 'rounded-2xl lg:rounded-full'
-								: 'rounded-none',
+							? 'border-primary/20 bg-background/85 shadow-[0_16px_40px_-12px_rgba(0,0,0,0.5)]'
+							: 'border-transparent border-b-border/40 bg-background/60 shadow-none',
 					)}
+					animate={{
+						maxWidth: isFloating ? '880px' : '100%',
+						borderRadius: open
+							? isFloating
+								? '24px'
+								: '0px 0px 24px 24px'
+							: isFloating
+								? '9999px'
+								: '0px',
+					}}
+					transition={springConfig}
 				>
 					<div
 						aria-hidden
 						className={cn(
-							'pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-white/12 to-transparent transition-opacity',
-							shellEase,
+							'pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-primary/30 to-transparent transition-opacity duration-500',
 							isFloating ? 'opacity-100' : 'opacity-0',
 						)}
 					/>
@@ -262,7 +262,7 @@ export function Header({ siteName = 'THEzombiePL' }) {
 															<motion.span
 																layoutId="nav-active-pill"
 																className="absolute inset-0 rounded-full bg-primary/10 ring-1 ring-primary/20"
-																transition={shellSpring}
+																transition={springConfig}
 															/>
 														))}
 													{Icon && (
@@ -309,7 +309,7 @@ export function Header({ siteName = 'THEzombiePL' }) {
 												? undefined
 												: { opacity: 0, rotate: 90, scale: 0.85 }
 										}
-										transition={{ duration: 0.18, ease: easeOutExpo }}
+										transition={{ duration: 0.18 }}
 										className="flex"
 									>
 										{open ? (
@@ -336,8 +336,8 @@ export function Header({ siteName = 'THEzombiePL' }) {
 									reduceMotion
 										? { duration: 0 }
 										: {
-												height: { ...shellSpring },
-												opacity: { duration: 0.22, ease: easeOutExpo },
+												height: { ...springConfig },
+												opacity: { duration: 0.22 },
 											}
 								}
 								className="overflow-hidden border-t border-border/40 lg:hidden"
@@ -366,7 +366,6 @@ export function Header({ siteName = 'THEzombiePL' }) {
 												transition={{
 													duration: 0.3,
 													delay: reduceMotion ? 0 : 0.03 + index * 0.045,
-													ease: easeOutExpo,
 												}}
 											>
 												<Link
@@ -408,8 +407,8 @@ export function Header({ siteName = 'THEzombiePL' }) {
 					</AnimatePresence>
 
 					{!open && <ScrollProgress />}
-				</div>
-			</div>
+				</motion.div>
+			</motion.div>
 		</header>
 	);
 }
