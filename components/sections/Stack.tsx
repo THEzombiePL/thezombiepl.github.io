@@ -95,7 +95,7 @@ const techStack = [
 
 export function Stack() {
 	return (
-		<section id="stack" className="scroll-mt-20 py-24 bg-accent/5">
+		<section id="stack" className="scroll-mt-16 py-16 bg-accent/5 md:scroll-mt-20 md:py-24">
 			<FadeInSection>
 				<div className="mx-auto max-w-5xl px-6">
 					<h2 className="text-3xl font-bold">Stack Technologiczny</h2>

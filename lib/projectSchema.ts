@@ -4,7 +4,10 @@ export const projectSchema = z.object({
 	title: z.string(),
 	slug: z.string().optional(),
 	description: z.string(),
-	status: z.enum(['w-trakcie', 'ukonczony']),
+	status: z
+		.enum(['w-trakcie', 'ukonczony', 'w-przygotowaniu'])
+		.optional()
+		.default('w-przygotowaniu'),
 	draft: z.boolean().optional().default(false),
 	featured: z.boolean().optional().default(false),
 

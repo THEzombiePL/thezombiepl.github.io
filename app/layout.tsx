@@ -54,7 +54,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
 				<Header />
 				<BackgroundGrid />
-				<main className="pt-16">{children}</main>
+				<main className="pt-12 sm:pt-14 md:pt-16">{children}</main>
 				<Footer />
 			</body>
 		</html>

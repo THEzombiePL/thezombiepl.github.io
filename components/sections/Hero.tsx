@@ -1,6 +1,7 @@
 'use client';
 
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
+import { scrollToSection } from '@/lib/scrollToSection';
 import { LightRays } from '../LightRays';
 
 export function Hero() {
@@ -35,16 +36,21 @@ export function Hero() {
 				</p>
 
 				<div className="mt-10 flex justify-center gap-6">
-					<a
-						href="#projects"
+					<button
+						type="button"
+						onClick={() => scrollToSection('projects')}
 						className="rounded-lg bg-primary px-6 py-3 text-primary-foreground"
 					>
 						Zobacz projekty
-					</a>
+					</button>
 
-					<a href="#contact" className="rounded-lg border border-primary px-6 py-3">
+					<button
+						type="button"
+						onClick={() => scrollToSection('contact')}
+						className="rounded-lg border border-primary px-6 py-3"
+					>
 						Kontakt
-					</a>
+					</button>
 				</div>
 			</div>
 		</section>

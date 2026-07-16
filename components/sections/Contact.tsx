@@ -1,18 +1,20 @@
 import Link from 'next/link';
-import { FadeInSection } from '@/components/FadeInSection';
 import { FaDiscord, FaEnvelope, FaServer } from 'react-icons/fa6';
+import { FadeInSection } from '@/components/FadeInSection';
 import { LightRays } from '../LightRays';
 
 export function Contact() {
 	return (
 		<FadeInSection delay={0.05}>
-			<section id="contact" className="relative overflow-hidden py-32 scroll-mt-20 ">
-				
+			<section
+				id="contact"
+				className="relative overflow-hidden py-16 scroll-mt-16 md:py-28 md:scroll-mt-20"
+			>
 				<div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-primary/20 to-transparent" />
-				<LightRays 
-					direction="up" 
-					color="var(--primary)" 
-					className="opacity-20" 
+				<LightRays
+					direction="up"
+					color="var(--primary)"
+					className="opacity-20"
 					length="60vh"
 					count={5}
 				/>
@@ -23,7 +25,8 @@ export function Contact() {
 					</h2>
 
 					<p className="mx-auto mb-12 max-w-md text-muted-foreground">
-						Masz pytanie lub propozycję współpracy? Odezwij się do mnie najszybciej przez Discorda lub mailowo.
+						Masz pytanie lub propozycję współpracy? Odezwij się do mnie najszybciej
+						przez Discorda lub mailowo.
 					</p>
 
 					<div className="grid gap-4 sm:grid-cols-3">
@@ -57,7 +60,17 @@ export function Contact() {
 	);
 }
 
-function ContactCard({ href, icon, label, value }: { href: string; icon: React.ReactNode; label: string; value: string }) {
+function ContactCard({
+	href,
+	icon,
+	label,
+	value,
+}: {
+	href: string;
+	icon: React.ReactNode;
+	label: string;
+	value: string;
+}) {
 	return (
 		<Link
 			href={href}
@@ -72,11 +85,9 @@ function ContactCard({ href, icon, label, value }: { href: string; icon: React.R
 				<span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
 					{label}
 				</span>
-				<span className="text-sm font-medium text-foreground">
-					{value}
-				</span>
+				<span className="text-sm font-medium text-foreground">{value}</span>
 			</div>
-			
+
 			<div className="absolute inset-0 -z-10 opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-20 bg-primary" />
 		</Link>
 	);

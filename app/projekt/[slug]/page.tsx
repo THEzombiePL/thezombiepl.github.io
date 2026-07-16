@@ -37,6 +37,11 @@ const statusConfig = {
 		icon: <FaHourglassHalf className="text-[10px]" />,
 		className: 'bg-yellow-500 text-black shadow-lg backdrop-blur-md ring-1 ring-yellow-500/40',
 	},
+	'w-przygotowaniu': {
+		label: 'W przygotowaniu',
+		icon: <FaHourglassHalf className="text-[10px]" />,
+		className: 'bg-yellow-500 text-black shadow-lg backdrop-blur-md ring-1 ring-yellow-500/40',
+	},
 } as const;
 
 /* REQUIRED FOR output: export */

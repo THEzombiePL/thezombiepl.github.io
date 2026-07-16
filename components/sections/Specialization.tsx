@@ -28,13 +28,15 @@ const items = [
 
 export function Specialization() {
 	return (
-		<section className="py-24">
+		<section id="specialization" className="scroll-mt-16 py-16 md:scroll-mt-20 md:py-24">
 			<FadeInSection>
-				<div className="mx-auto max-w-5xl px-6">
-					<h2 className="text-3xl font-bold">Specjalizacja</h2>
-					<p className="mt-4 text-muted-foreground">Tym zajmuję się na co dzień.</p>
+				<div className="mx-auto max-w-5xl px-4 sm:px-6">
+					<h2 className="text-2xl font-bold sm:text-3xl">Specjalizacja</h2>
+					<p className="mt-3 text-muted-foreground sm:mt-4">
+						Tym zajmuję się na co dzień.
+					</p>
 
-					<div className="mt-12 grid gap-6 sm:grid-cols-2">
+					<div className="mt-8 grid gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-6">
 						{items.map((item) => (
 							<div
 								key={item.title}
