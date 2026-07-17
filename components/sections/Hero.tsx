@@ -14,7 +14,7 @@ export function Hero() {
 	const y = useTransform(scrollY, [0, 300], [0, shouldAnimate ? 40 : 0]);
 
 	return (
-		<section className="relative pt-32 pb-24 overflow-hidden">
+		<section className="relative -mt-12 sm:-mt-14 md:-mt-16 pt-44 sm:pt-[11.5rem] md:pt-48 pb-24 overflow-hidden">
 			{/* LIGHT RAYS */}
 			<LightRays color="var(--primary)" className="opacity-20" />
 
